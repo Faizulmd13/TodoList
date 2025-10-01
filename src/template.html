@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoList</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;family=Yusei+Magic&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <span class="material-symbols-outlined">checklist</span>
+        <h2 class="title">Todo-list</h2>
+      </div>
+    </header>
+    <main class="main">
+      <nav class="nav">
+        <div class="defaults">
+          <button class="default-btns">
+            <span class="material-symbols-outlined">inbox</span> Inbox
+          </button>
+          <button class="default-btns">
+            <span class="material-symbols-outlined">today</span> Today
+          </button>
+          <button class="default-btns">
+            <span class="material-symbols-outlined">date_range</span> This week
+          </button>
+        </div>
+        <div class="projects">
+          <h1 class="projects-title">Projects</h1>
+          <div class="project-lists">
+            <button class="project-btn">
+              <span class="material-symbols-outlined">folder_open</span>
+              <span class="project-name">Default</span>
+            </button>
+          </div>
+
+          <button class="add-project-btn">
+            <span class="material-symbols-outlined">add</span> Add Project
+          </button>
+
+          <div class="add-project-form hidden">
+            <input
+              type="text"
+              class="new-project-input"
+              placeholder="Project name"
+            />
+            <div class="actions">
+              <button class="add-project-confirm">Add</button>
+              <button class="add-project-cancel">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="tasks-container"></div>
+    </main>
+    <footer class="footer">
+      <p>Copyright &copy; 2021</p>
+      <a href="https://github.com/Faizulmd13" target="_blank">Faizulmd13</a>
+    </footer>
+  </body>
+</html>

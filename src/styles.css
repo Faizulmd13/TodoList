@@ -1,0 +1,175 @@
+/* CSS Reset */
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  background: #0d1b2a;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: #e0e1dd;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo span {
+  font-size: 2rem;
+}
+
+.title {
+  font-family: "Yusei Magic", sans-serif;
+  font-size: 1.5rem;
+}
+
+/* MAIN Container */
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.nav {
+  width: 250px;
+  background: #e0e1dd;
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+}
+
+.nav h1 {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.default-btns,
+.project-btn,
+.add-project-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.default-btns.active,
+.project-btn.active {
+  background: #f0f0f0;
+}
+
+.default-btns:hover,
+.project-btn:hover,
+.add-project-btn:hover {
+  background: #f0f0f0;
+}
+
+.add-project-btn {
+  margin-top: 1rem;
+  margin-bottom: none;
+  font-weight: bold;
+}
+
+.add-project-form {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-project-form input {
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.add-project-form input:focus {
+  outline: none;
+}
+
+.add-project-form .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.add-project-form button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-project-confirm {
+  background: #1976d2;
+  color: white;
+}
+
+.add-project-cancel {
+  background: #eee;
+}
+
+.hidden {
+  display: none;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  background: #0d1b2a;
+  color: #e0e1dd;
+  font-size: 1rem;
+  gap: 0.5rem;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.footer a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.footer a:hover::after {
+  width: 100%;
+}
