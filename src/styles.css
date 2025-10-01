@@ -1,5 +1,21 @@
-/* CSS Reset */
+/* ===============================
+   COLOR VARIABLES
+================================= */
+:root {
+  --rich-black: #0d1b2aff;
+  --oxford-blue: #1b263bff;
+  --yinmn-blue: #415a77ff;
+  --silver-lake-blue: #778da9ff;
+  --platinum: #e0e1ddff;
 
+  --priority-1: #ff4d4d;
+  --priority-2: #ff9900;
+  --priority-3: #415a77;
+}
+
+/* ===============================
+   CSS RESET
+================================= */
 *,
 *::after,
 *::before {
@@ -10,20 +26,22 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background: #f9f9f9;
+  background: var(--platinum);
   color: #333;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* HEADER */
+/* ===============================
+   HEADER
+================================= */
 .header {
-  background: #0d1b2a;
+  background: var(--rich-black);
   display: flex;
   align-items: center;
   padding: 1rem;
-  color: #e0e1dd;
+  color: var(--platinum);
 }
 
 .logo {
@@ -41,15 +59,20 @@ body {
   font-size: 1.5rem;
 }
 
-/* MAIN Container */
+/* ===============================
+   MAIN CONTAINER
+================================= */
 .main {
   display: flex;
   flex: 1;
 }
 
+/* ===============================
+   NAV
+================================= */
 .nav {
   width: 250px;
-  background: #e0e1dd;
+  background: var(--platinum);
   border-right: 1px solid #ddd;
   padding: 1rem;
 }
@@ -79,13 +102,13 @@ body {
 
 .default-btns.active,
 .project-btn.active {
-  background: #f0f0f0;
+  background: white;
 }
 
 .default-btns:hover,
 .project-btn:hover,
 .add-project-btn:hover {
-  background: #f0f0f0;
+  background: white;
 }
 
 .delete-project {
@@ -94,19 +117,18 @@ body {
 }
 
 .delete-project:hover {
-  color: #ff0000;
+  color: var(--priority-1);
 }
 
 .add-project-btn {
   margin-top: 1rem;
-  margin-bottom: none;
   font-weight: bold;
 }
 
 .add-project-form {
   margin-top: 0.5rem;
   padding: 0.5rem;
-  background: #f5f5f5;
+  background: var(--silver-lake-blue);
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -137,33 +159,220 @@ body {
 }
 
 .add-project-confirm {
-  background: #1976d2;
-  color: white;
+  background: var(--yinmn-blue);
+  color: var(--platinum);
 }
 
 .add-project-cancel {
-  background: #eee;
+  background: var(--silver-lake-blue);
 }
 
 .hidden {
   display: none;
 }
 
-/* FOOTER */
+/* ===============================
+   TASKS CONTAINER
+================================= */
+.tasks-container {
+  flex: 1;
+  padding: 1.5rem;
+  background: var(--platinum);
+}
+
+.task-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.task-div.priority-1 {
+  border-left: 4px solid var(--priority-1);
+}
+.task-div.priority-2 {
+  border-left: 4px solid var(--priority-2);
+}
+.task-div.priority-3 {
+  border-left: 4px solid var(--priority-3);
+}
+
+/* Base circular checkbox */
+.task-checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--rich-black);
+  cursor: pointer;
+  position: relative;
+  margin-right: 0.5rem;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.task-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.task-div.priority-1 .task-checkbox {
+  color: var(--priority-1);
+  border-color: var(--priority-1);
+}
+.task-div.priority-2 .task-checkbox {
+  color: var(--priority-2);
+  border-color: var(--priority-2);
+}
+.task-div.priority-3 .task-checkbox {
+  color: var(--priority-3);
+  border-color: var(--priority-3);
+}
+
+.task-checkbox:hover {
+  border-color: var(--priority-1);
+  color: var(--priority-1);
+}
+
+.task-title {
+  font-weight: 500;
+}
+
+.due-date {
+  font-size: 0.9rem;
+  color: var(--oxford-blue);
+}
+
+.left-container {
+  display: flex;
+  align-items: center;
+}
+
+/* ===============================
+   NEW TASK FORM
+================================= */
+.new-task-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 0.75rem;
+}
+
+.new-task-btn:hover {
+  background: white;
+}
+
+.new-task-btn .material-symbols-outlined {
+  font-size: 1.2rem;
+  color: var(--yinmn-blue);
+}
+
+.new-task-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border: 1px solid var(--silver-lake-blue);
+  border-radius: 6px;
+}
+
+.task-inputs {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.new-task-name {
+  flex: 2;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.new-task-priority {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.date-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--yinmn-blue);
+}
+
+.new-task-due {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.task-add-btn {
+  background: var(--yinmn-blue);
+  color: var(--platinum);
+  border-radius: 6px;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+.task-cancel-btn {
+  background: var(--silver-lake-blue);
+  color: var(--rich-black);
+  border-radius: 6px;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+/* ===============================
+   FOOTER
+================================= */
 .footer {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   text-align: center;
-  background: #0d1b2a;
-  color: #e0e1dd;
+  background: var(--rich-black);
+  color: var(--platinum);
   font-size: 1rem;
   gap: 0.5rem;
 }
 
 .footer a {
-  color: white;
+  color: var(--platinum);
   text-decoration: none;
   position: relative;
 }
@@ -175,7 +384,7 @@ body {
   bottom: -2px;
   width: 0;
   height: 2px;
-  background: white;
+  background: var(--platinum);
   transition: width 0.3s ease;
 }
 

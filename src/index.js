@@ -1,4 +1,11 @@
 import "./styles.css";
+import {
+  getTasksByProject,
+  getInboxTasks,
+  getTodayTasks,
+  getThisWeekTasks,
+} from "./modules/tasksManager.js";
+import renderTasks from "./modules/renderTasks.js";
 
 const inboxButton = document.querySelector(".inbox");
 const todayButton = document.querySelector(".today");
@@ -6,14 +13,17 @@ const thisWeekButton = document.querySelector(".this-week");
 
 inboxButton.addEventListener("click", () => {
   setActive(inboxButton);
+  renderTasks(getInboxTasks());
 });
 
 todayButton.addEventListener("click", () => {
   setActive(todayButton);
+  renderTasks(getTodayTasks());
 });
 
 thisWeekButton.addEventListener("click", () => {
   setActive(thisWeekButton);
+  renderTasks(getThisWeekTasks());
 });
 
 const projectLists = document.querySelector(".project-lists");
@@ -37,6 +47,8 @@ projectLists.addEventListener("click", (e) => {
   if (!project) return;
 
   setActive(project);
+  const projectName = project.querySelector(".project-name").textContent.trim();
+  renderTasks(getTasksByProject(projectName));
 });
 
 function setActive(button) {
@@ -120,3 +132,5 @@ function renderProjects() {
 }
 
 renderProjects();
+renderTasks(getInboxTasks());
+setActive(inboxButton);
