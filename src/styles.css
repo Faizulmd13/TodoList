@@ -88,6 +88,15 @@ body {
   background: #f0f0f0;
 }
 
+.delete-project {
+  margin: 2px;
+  margin-left: auto;
+}
+
+.delete-project:hover {
+  color: #ff0000;
+}
+
 .add-project-btn {
   margin-top: 1rem;
   margin-bottom: none;
