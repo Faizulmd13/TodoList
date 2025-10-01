@@ -7,6 +7,14 @@ import {
 } from "./modules/tasksManager.js";
 import renderTasks from "./modules/renderTasks.js";
 
+const nav = document.querySelector('.nav');
+const toggle = document.getElementById('nav-toggle');
+
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('show');
+});
+
+
 const inboxButton = document.querySelector(".inbox");
 const todayButton = document.querySelector(".today");
 const thisWeekButton = document.querySelector(".this-week");

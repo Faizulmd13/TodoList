@@ -42,6 +42,7 @@ body {
   align-items: center;
   padding: 1rem;
   color: var(--platinum);
+  justify-content: space-between;
 }
 
 .logo {
@@ -80,6 +81,15 @@ body {
 .nav h1 {
   font-size: 1.2rem;
   margin: 1rem 0;
+}
+
+#nav-toggle {
+  background: none;
+  border: none;
+  color: var(--platinum);
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
 }
 
 .default-btns,
@@ -390,4 +400,102 @@ body {
 
 .footer a:hover::after {
   width: 100%;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================= */
+@media (max-width: 600px) {
+  body {
+    font-size: 0.85rem; /* slightly smaller font */
+  }
+
+  .header {
+    padding: 0.5rem;
+  }
+
+  .logo span {
+    font-size: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .nav {
+    display: none;
+    background: var(--platinum);
+    z-index: 1000;
+    padding: 0.5rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav.show {
+    display: block; /* show nav when button clicked */
+  }
+
+  #nav-toggle {
+    display: block; /* show toggle button on mobile */
+  }
+
+  .nav h1 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .default-btns,
+  .project-btn,
+  .add-project-btn,
+  .new-task-btn {
+    font-size: 0.85rem;
+    padding: 0.3rem;
+  }
+
+  .tasks-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .task-div {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .task-checkbox {
+    width: 14px;
+    height: 14px;
+  }
+
+  .task-title {
+    font-size: 0.9rem;
+  }
+
+  .due-date {
+    font-size: 0.8rem;
+  }
+
+  .new-task-div {
+    padding: 0.3rem;
+    gap: 0.3rem;
+  }
+
+  .task-inputs {
+    gap: 0.3rem;
+  }
+
+  .new-task-name,
+  .new-task-priority {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .task-actions button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+    gap: 0.3rem;
+  }
 }
