@@ -60,6 +60,9 @@ export default function renderTasks(tasks) {
   `;
 
   newTaskBtn.addEventListener("click", () => {
+    const navToggle = document.querySelector("#nav-toggle");
+    navToggle.disabled = true;
+
     const nav = document.querySelector(".nav");
     nav.classList.remove("show");
 
@@ -130,6 +133,7 @@ export default function renderTasks(tasks) {
     cancelBtn.addEventListener("click", () => {
       newTaskdiv.remove();
       newTaskBtn.style.display = "flex";
+      navToggle.disabled = false;
     });
 
     taskActions.appendChild(addBtn);
@@ -170,6 +174,8 @@ export default function renderTasks(tasks) {
       } else {
         renderTasks(getInboxTasks());
       }
+
+      navToggle.disabled = false;
     });
   });
 

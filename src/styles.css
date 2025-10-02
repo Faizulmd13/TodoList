@@ -407,6 +407,7 @@ body {
 @media (max-width: 600px) {
   body {
     font-size: 0.85rem; /* slightly smaller font */
+    height: 100vh;
   }
 
   .header {
@@ -427,7 +428,7 @@ body {
     z-index: 1000;
     padding: 0rem;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, padding 0.3s ease;
     overflow: hidden;
   }
 
