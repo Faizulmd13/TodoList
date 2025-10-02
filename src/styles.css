@@ -406,7 +406,7 @@ body {
 ================================= */
 @media (max-width: 600px) {
   body {
-    font-size: 0.85rem; /* slightly smaller font */
+    font-size: 0.85rem;
     height: 100vh;
   }
 
@@ -424,21 +424,30 @@ body {
 
   .nav {
     width: 0px;
+    padding: 0rem;
     background: var(--platinum);
     z-index: 1000;
-    padding: 0rem;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-    transition: width 0.3s ease, padding 0.3s ease;
     overflow: hidden;
+    transition: width 0.3s ease, padding 0.3s ease;
   }
 
   .nav.show {
     width: 200px;
-    padding: 0.5rem; /* show nav when button clicked */
+    padding: 0.5rem;
+  }
+
+  .nav > * {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav:not(.show) > * {
+    opacity: 0;
   }
 
   #nav-toggle {
-    display: block; /* show toggle button on mobile */
+    display: block;
   }
 
   .nav h1 {
@@ -464,7 +473,7 @@ body {
 
   .nav.show ~ .tasks-container .due-date {
     opacity: 0;
-    pointer-events: none; /* optional, makes them unclickable while hidden */
+    pointer-events: none;
   }
 
   .task-div {
