@@ -60,6 +60,9 @@ export default function renderTasks(tasks) {
   `;
 
   newTaskBtn.addEventListener("click", () => {
+    const nav = document.querySelector(".nav");
+    nav.classList.remove("show");
+
     newTaskBtn.style.display = "none";
 
     const newTaskdiv = document.createElement("div");
@@ -76,11 +79,17 @@ export default function renderTasks(tasks) {
 
     const newTaskPriority = document.createElement("select");
     newTaskPriority.classList.add("new-task-priority");
-    ["none", "1", "2", "3"].forEach((priority) => {
+    ["Priority", "1", "2", "3"].forEach((priority) => {
       const option = document.createElement("option");
-      option.value = priority;
-      option.textContent = priority;
-      newTaskPriority.appendChild(option);
+      if (priority === "Prioirity") {
+        option.value = "none";
+        option.textContent = priority;
+        newTaskPriority.appendChild(option);
+      } else {
+        option.value = priority;
+        option.textContent = priority;
+        newTaskPriority.appendChild(option);
+      }
     });
 
     const newTaskDue = document.createElement("input");

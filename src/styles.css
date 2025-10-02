@@ -138,8 +138,7 @@ body {
 .add-project-form {
   margin-top: 0.5rem;
   padding: 0.5rem;
-  background: var(--silver-lake-blue);
-  border: 1px solid #ddd;
+  border: 1px solid var(--rich-black);
   border-radius: 4px;
 }
 
@@ -423,15 +422,18 @@ body {
   }
 
   .nav {
-    display: none;
+    width: 0px;
     background: var(--platinum);
     z-index: 1000;
-    padding: 0.5rem;
+    padding: 0rem;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease;
+    overflow: hidden;
   }
 
   .nav.show {
-    display: block; /* show nav when button clicked */
+    width: 200px;
+    padding: 0.5rem; /* show nav when button clicked */
   }
 
   #nav-toggle {
@@ -453,6 +455,15 @@ body {
 
   .tasks-container {
     padding: 1rem 0.5rem;
+  }
+
+  .tasks-container .due-date {
+    transition: opacity 0.3s ease;
+  }
+
+  .nav.show ~ .tasks-container .due-date {
+    opacity: 0;
+    pointer-events: none; /* optional, makes them unclickable while hidden */
   }
 
   .task-div {
