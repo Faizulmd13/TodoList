@@ -1,4 +1,4 @@
-/* ===============================
+/* =============================== 
    COLOR VARIABLES
 ================================= */
 :root {
@@ -30,7 +30,10 @@ body {
   color: #333;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+
+  /* FIX for mobile height */
+  min-height: 100dvh; /* use dynamic vh where supported */
+  min-height: calc(var(--vh, 1vh) * 100); /* fallback with JS */
 }
 
 /* ===============================
@@ -407,7 +410,9 @@ body {
 @media (max-width: 600px) {
   body {
     font-size: 0.85rem;
-    height: 100vh;
+    /* use the same fix here */
+    min-height: 100dvh;
+    min-height: calc(var(--vh, 1vh) * 100);
   }
 
   .header {
@@ -439,7 +444,7 @@ body {
 
   .nav > * {
     opacity: 1;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.3s ease;
   }
 
   .nav:not(.show) > * {

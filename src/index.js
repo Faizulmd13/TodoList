@@ -7,13 +7,37 @@ import {
 } from "./modules/tasksManager.js";
 import renderTasks from "./modules/renderTasks.js";
 
-const nav = document.querySelector('.nav');
-const toggle = document.getElementById('nav-toggle');
+/* ===============================
+   MOBILE HEIGHT FIX
+================================= */
+function updateVh() {
+  const vh = window.visualViewport
+    ? window.visualViewport.height * 0.01
+    : window.innerHeight * 0.01;
 
-toggle.addEventListener('click', () => {
-  nav.classList.toggle('show');
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+}
+
+// Run once on load
+updateVh();
+
+// Update on resize / orientation / viewport changes
+window.addEventListener("resize", updateVh);
+window.addEventListener("orientationchange", updateVh);
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener("resize", updateVh);
+}
+
+/* ===============================
+   NAVIGATION
+================================= */
+const nav = document.querySelector(".nav");
+const toggle = document.getElementById("nav-toggle");
+
+toggle.addEventListener("click", () => {
+  nav.classList.toggle("show");
 });
-
 
 const inboxButton = document.querySelector(".inbox");
 const todayButton = document.querySelector(".today");
@@ -66,8 +90,9 @@ function setActive(button) {
   button.classList.add("active");
 }
 
-// LocalStorage Helpers
-
+/* ===============================
+   LOCAL STORAGE HELPERS
+================================= */
 function getProjects() {
   return JSON.parse(localStorage.getItem("projects")) || ["Default"];
 }
@@ -76,8 +101,9 @@ function saveProjects(projects) {
   localStorage.setItem("projects", JSON.stringify(projects));
 }
 
-//New Project Form Handler
-
+/* ===============================
+   NEW PROJECT FORM HANDLER
+================================= */
 const addProjectBtn = document.querySelector(".add-project-btn");
 const addProjectForm = document.querySelector(".add-project-form");
 const newProjectCancel = addProjectForm.querySelector(".add-project-cancel");
